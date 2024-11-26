@@ -164,7 +164,8 @@ def intermediateMode():
 		    "You must enter an integer less than three and greater than or equal to 0. \n")
 		while (choice > 2 or choice < 0):
 			try:
-				choice = int(input("0: Rock, 1: Paper, 2: Scissors \n"))
+        
+				print("Rock,Paper,Scissors \n");choice = executecamera()
 			except ValueError:
 				print("you must enter an integer \n")
 	machineChoice = random.randint(0, 2)
@@ -189,24 +190,25 @@ def intermediateMode():
 
 	while (continuePlaying):
 		try:
-			choice = int(input("0: Rock, 1: Paper, 2: Scissors, 5: exit \n"))
+        
+			print("Rock,paper,Scissors");choice = executecamera()
 		except ValueError:
 			print("you must enter an integer \n")
 
 		if ((choice > 2 or choice < 0) and choice != 5):
 			print(
-			    "You must enter an integer less than three and greater than or equal to 0. Or put 5 to exit \n"
+			    "You must enter an integer less than three and greater than or equal to 0. Or put 3 to exit \n"
 			)
 			while ((choice > 2 or choice < 0) and choice != 5):
 				try:
 					print(
-					    "You must enter an integer less than three and greater than or equal to 0. Or put 5 to exit \n"
+					    "You must enter an integer less than three and greater than or equal to 0. Or put 3 to exit \n"
 					)
-					choice = int(input("0: Rock, 1: Paper, 2: Scissors \n"))
+					print("Rock , Paper ,Scissors");choice = executecamera()
 				except ValueError:
 					print("you must enter an integer \n")
 
-		if (choice == 5):
+		if (choice == 3):
 			print("Thanks for Playing!")
 			continuePlaying = False
 		else:
@@ -268,7 +270,7 @@ def expertMode():
   probScissors = 0
 
   try:
-      choice = int(input("0: Rock, 1: Paper, 2: Scissors \n"))
+      print("Rock,Paper,Scissors \n");choice = executecamera()
   except ValueError:
     print("you must enter an integer \n")
 
@@ -277,7 +279,8 @@ def expertMode():
     while((choice > 2 or choice < 0)):
       print ("You must enter an integer less than three and greater than or equal to 0 \n")
       try:
-        choice = int(input("0: Rock, 1: Paper, 2: Scissors \n"))
+        print("Rock,Paper,Scissors \n");  
+        choice = executecamera()
       except ValueError:
         print("you must enter an integer \n")
 
@@ -292,7 +295,7 @@ def expertMode():
   while(continuePlaying):
     choice = 3
     try:
-      choice = int(input("0: Rock, 1: Paper, 2: Scissors, 5: exit \n"))
+      print("Rock,Paper,Scissors \n");choice = executecamera()
     except ValueError:
       print("you must enter an integer \n")
 
@@ -301,7 +304,7 @@ def expertMode():
       while((choice > 2 or choice < 0) and choice != 5):
         print ("You must enter an integer less than three and greater than or equal to 0 or choose 5 to exit.\n")
         try:
-          choice = int(input("0: Rock, 1: Paper, 2: Scissors \n"))
+          print("Rock,Paper,Scissors \n");choice = executecamera()
         except ValueError:
           print("you must enter an integer \n")
     if (choice == 5):
@@ -414,7 +417,7 @@ def superHard():
   result = ""
   print ("I am going to play %s" % choices[random.randint(0, 2)])
   try:
-    choice = int(input("0: Rock, 1: Paper, 2: Scissors \n"))
+    print("Rock,Paper,Scissors \n");choice = executecamera()
   except ValueError:
     print("you must enter an integer \n")
 
@@ -423,7 +426,7 @@ def superHard():
     while((choice > 2 or choice < 0)):
       try:
         print ("You must enter an integer less than three and greater than or equal to 0 \n")
-        choice = int(input("0: Rock, 1: Paper, 2: Scissors \n"))
+        print("Rock,Paper,Scissors \n");choice = executecamera()
       except ValueError:
         print("you must enter an integer \n")
 
@@ -439,7 +442,7 @@ def superHard():
   while(continuePlaying):
     print ("I am going to play %s" % choices[random.randint(0, 2)])
     try:
-      choice = int(input("0: Rock, 1: Paper, 2: Scissors, 5: exit \n"))
+      print("Rock,Paper,Scissors \n");choice = executecamera()
     except ValueError:
       print("you must enter an integer \n")
 
@@ -448,7 +451,7 @@ def superHard():
       while((choice > 2 or choice < 0) and choice != 5):
         try:
           print ("You must enter an integer less than three and greater than or equal to 0 or choose 5 to exit. \n")
-          choice = int(input("0: Rock, 1: Paper, 2: Scissors, 5: exit \n"))
+          print("Rock,Paper,Scissors \n");choice = executecamera()  
         except ValueError:
           print("you must enter an integer \n")
 
