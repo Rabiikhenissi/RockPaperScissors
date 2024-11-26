@@ -12,17 +12,25 @@ import time
 def executecamera():
   cap = cv2.VideoCapture(0)
   detector = HandDetector(maxHands=1) 
-  time.sleep(5)  # Add a delay before detecting the choice
+  time.sleep(5)  
   while True :
     success,img = cap.read()
-    #Find the hand and its landmarks
     hands,img = detector.findHands(img)
 
     if hands:
         hand = hands[0]
         fingers = detector.fingersUp(hand)
-        return sum(fingers)
-
+        if sum(fingers) == 0:  
+            print("Detected: Rock")
+            return 0
+        elif sum(fingers) == 5:  
+              print("Detected: Paper")
+              return 1
+        elif sum(fingers) == 2:  
+              print("Detected: Scissors")
+              return 2
+        else:
+              return sum(fingers)
  
 
 X = '\033[0m'
@@ -93,13 +101,8 @@ def easyMode():
   choices = ["Rock","Paper","Scissors"]
   continuePlaying = True
   continueGame = ""
-  print("Rock, Paper,Scissors \n")
+  print("Rock,Paper,Scissors \n")
   choice = executecamera()
-
-  if choice == 5:
-     choice= 1
-
-
   machineChoice = random.randint(0, 2)
   result = checkWin(choice,machineChoice,1)
   print ("You chose %s" % choices[choice])
