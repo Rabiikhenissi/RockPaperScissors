@@ -9,6 +9,12 @@ import cv2
 import cvzone
 from cvzone.HandTrackingModule import HandDetector
 import time
+import pygame 
+
+pygame.init()
+soundStart = pygame.mixer.Sound("start.mp3")
+soundWin = pygame.mixer.Sound("win.mp3")
+soundLose = pygame.mixer.Sound("lose.mp3")
 def executecamera():
   cap = cv2.VideoCapture(0)
   detector = HandDetector(maxHands=1) 
@@ -31,8 +37,42 @@ def executecamera():
               return 2
         else:
               return sum(fingers)
- 
+              
+ #def executecamera():
+    #cap = cv2.VideoCapture(0)
+   # detector = HandDetector(maxHands=1) 
+    #time.sleep(6)  
 
+   # while True:
+      #  success, img = cap.read()
+      #  if not success:
+       #     print("Failed to capture video")
+       #     break
+
+        # Detect hand and gesture
+       # hands, img = detector.findHands(img)
+     #   detected_gesture = "None"
+
+      #  if hands:
+          #  hand = hands[0]
+         #   fingers = detector.fingersUp(hand)
+            
+         #   if sum(fingers) == 0:  
+            #    detected_gesture = "Rock"
+          #  elif sum(fingers) == 5:  
+         #       detected_gesture = "Paper"
+          #  elif sum(fingers) == 2:  
+           #     detected_gesture = "Scissors"
+#
+    #    cv2.putText(img, f"Gesture: {detected_gesture}", (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+#
+     #   cv2.imshow("Rock Paper Scissors - Detection", img)
+#
+     #   if cv2.waitKey(1) & 0xFF == ord('q'):
+     #       break
+
+  #  cap.release()
+    #cv2.destroyAllWindows()
 X = '\033[0m'
 Bold = '\033[1;36m'
 HighB = '\033[1;44m'
@@ -77,6 +117,7 @@ print(X)
 
 
 def chooseMode():
+  soundStart.play()
   mode = 6
   try:
 
@@ -762,9 +803,11 @@ def checkWin(user, machine, mode):
         checkStats(2, mode)
         return "Tied!"
     elif (win):
+        soundWin.play()
         checkStats(0, mode)
         return "Win!"
     else:
+        soundLose.play()
         checkStats(1, mode)
         return "Lose!"
 
