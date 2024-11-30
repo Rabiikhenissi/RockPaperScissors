@@ -18,3 +18,8 @@ Run the following commands to install the required dependencies:
 Execute the script to start the game and enjoy! 
  
  # ENJOY🎮!
+
+ ## Team members 
+
+### Rabii Khenissi
+### Adem Sansa
